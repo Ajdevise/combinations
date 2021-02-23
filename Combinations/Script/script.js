@@ -1,12 +1,14 @@
 const list = document.querySelector(".numbers");
-const cta = document.querySelector(".cta");
+const cta = document.querySelector("#submit");
 const input = document.querySelector("#combination");
+const deleteAll = document.querySelector("#delete");
 // let obj = {
 //     '22': {
 //         occurences: 8,
 //         percentage: 2
 //     }
 // }
+
 if(localStorage.getItem("total") === null) {
     localStorage.setItem("total", 0);
 }
@@ -81,4 +83,8 @@ const percentageClass = (percentage) => {
 }
 
 recalculateValues();
+deleteAll.addEventListener("click", () => {
+    localStorage.clear();
+    location.reload();
+})
 cta.addEventListener("click", submitNumbers);
